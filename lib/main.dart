@@ -8,6 +8,8 @@ import 'package:saidpure_service/LunchScreen/lunch_screen.dart';
 import 'package:saidpure_service/LunchScreen/lunch_screen_binding.dart';
 import 'package:saidpure_service/SignupScreen/signup_screen.dart';
 import 'package:saidpure_service/SignupScreen/signup_screen_binding.dart';
+import 'package:saidpure_service/SplashScreen/splash_screen.dart';
+import 'package:saidpure_service/SplashScreen/splash_screen_binding.dart';
 import 'package:saidpure_service/utils/routes.dart';
 
 void main() async {
@@ -52,9 +54,14 @@ class MyApp extends StatelessWidget {
             );
           },
 
-          initialRoute: Routes.lunchScreen,
+          initialRoute: Routes.splashScreen,
 
           getPages: [
+            GetPage(
+              name: Routes.splashScreen,
+              page: () => SplashScreen(),
+              binding: SplashScreenBinding(),
+            ),
             GetPage(
               name: Routes.loginScreen,
               page: () => const LoginScreen(),
