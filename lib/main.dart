@@ -1,15 +1,17 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:saidpure_service/LoginScreen/login_screen.dart';
+import 'package:saidpure_service/LoginScreen/login_screen_binding.dart';
+import 'package:saidpure_service/LunchScreen/lunch_screen.dart';
+import 'package:saidpure_service/LunchScreen/lunch_screen_binding.dart';
+import 'package:saidpure_service/SignupScreen/signup_screen.dart';
+import 'package:saidpure_service/SignupScreen/signup_screen_binding.dart';
+import 'package:saidpure_service/utils/routes.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  Get.put(());
   configLoading();
   runApp(const MyApp());
 }
@@ -28,13 +30,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  ScreenUtilInit(
+    return ScreenUtilInit(
       designSize: const Size(360, 690),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
         return GetMaterialApp(
-          title: "Ashly",
+          title: "saidpure service",
           debugShowCheckedModeBanner: false,
           theme: ThemeData(fontFamily: 'Poppins'),
 
@@ -49,13 +51,25 @@ class MyApp extends StatelessWidget {
               child: widget,
             );
           },
-          // initialRoute: Routes.splashScreen,
+
+          initialRoute: Routes.lunchScreen,
+
           getPages: [
-            // GetPage(
-            //   name: Routes.splashScreen,
-            //   page: () => SplashScreen(),
-            //   binding: splashScreenBinding(),
-            // ),
+            GetPage(
+              name: Routes.loginScreen,
+              page: () => const LoginScreen(),
+              binding: LoginScreenBinding(),
+            ),
+            GetPage(
+              name: Routes.signupScreen,
+              page: () => SignupScreen(),
+              binding: SingupScreenBinding(),
+            ),
+            GetPage(
+              name: Routes.lunchScreen,
+              page: () => LunchScreen(),
+              binding: LunchScreenBinding(),
+            ),
           ],
         );
       },
