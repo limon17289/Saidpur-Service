@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:saidpure_service/utils/routes.dart';
 import 'login_screen_controller.dart';
@@ -14,37 +15,37 @@ class LoginScreen extends GetView<LoginScreenController> {
         child: Form(
           key: controller.formKey,
           child: Padding(
-            padding: const EdgeInsets.all(20),
+            padding: EdgeInsets.all(20),
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 40),
+                  SizedBox(height: 40.h),
 
                   // Title
                   Align(
-                    child: const Text(
+                    child: Text(
                       "Welcome to saidpur service",
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 20.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
 
-                  const SizedBox(height: 8),
+                  SizedBox(height: 8.h),
 
                   Align(
                     child: Text(
                       "Login ",
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 20.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
 
-                  const SizedBox(height: 30),
+                  SizedBox(height: 30.h),
 
                   // Email
                   CustomTextField(
@@ -53,7 +54,7 @@ class LoginScreen extends GetView<LoginScreenController> {
                     validator: controller.validateEmail,
                   ),
 
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16.h),
 
                   // Password
                   Obx(
@@ -76,7 +77,7 @@ class LoginScreen extends GetView<LoginScreenController> {
                     ),
                   ),
 
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10.h),
 
                   // Forgot password
                   Align(
@@ -87,13 +88,13 @@ class LoginScreen extends GetView<LoginScreenController> {
                     ),
                   ),
 
-                  const SizedBox(height: 20),
+                  SizedBox(height: 20.h),
 
                   // Login Button
                   Obx(
                     () => SizedBox(
                       width: double.infinity,
-                      height: 50,
+                      height: 50.h,
                       child: ElevatedButton(
                         onPressed:
                             controller.isLoading.value
@@ -101,7 +102,7 @@ class LoginScreen extends GetView<LoginScreenController> {
                                 : controller.login,
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
+                            borderRadius: BorderRadius.circular(10.r),
                           ),
                         ),
                         child:
@@ -114,7 +115,7 @@ class LoginScreen extends GetView<LoginScreenController> {
                     ),
                   ),
 
-                  const SizedBox(height: 20),
+                  SizedBox(height: 20.h),
 
                   // Signup
                   Row(
@@ -168,10 +169,7 @@ class CustomTextField extends StatelessWidget {
         hintText: hint,
         filled: true,
         fillColor: Colors.grey.shade100,
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: 16,
-          vertical: 14,
-        ),
+        contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide.none,

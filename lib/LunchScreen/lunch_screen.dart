@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:saidpure_service/utils/routes.dart';
 
@@ -11,26 +12,26 @@ class LunchScreen extends GetView {
       backgroundColor: const Color(0xFFF5F7FB),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
+          padding: EdgeInsets.symmetric(horizontal: 15.w),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Spacer(),
 
               /// APP TITLE
-              const Text(
+              Text(
                 "Welcome to Saidpur Service",
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 25.sp, fontWeight: FontWeight.bold),
               ),
-              const SizedBox(height: 10),
+              SizedBox(height: 10.h),
               Text(
                 "Login or Signup to continue",
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 16, color: Colors.grey.shade600),
+                style: TextStyle(fontSize: 16.sp, color: Colors.grey.shade600),
               ),
 
-              const SizedBox(height: 40),
+              SizedBox(height: 40.h),
 
               /// EMAIL LOGIN BUTTON
               ModernLoginButton(
@@ -44,7 +45,7 @@ class LunchScreen extends GetView {
                 },
               ),
 
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
 
               /// OR SEPARATOR
               Row(
@@ -52,8 +53,8 @@ class LunchScreen extends GetView {
                   Expanded(
                     child: Divider(color: Colors.grey.shade300, thickness: 1),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10.w),
                     child: Text(
                       "OR",
                       style: TextStyle(
@@ -68,7 +69,7 @@ class LunchScreen extends GetView {
                 ],
               ),
 
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
 
               /// GOOGLE LOGIN BUTTON
               ModernLoginButton(
@@ -81,7 +82,7 @@ class LunchScreen extends GetView {
                   Get.snackbar("Google Login", "Clicked Google Login");
                 },
               ),
-              const SizedBox(height: 16),
+              SizedBox(height: 16.h),
 
               /// APPLE LOGIN BUTTON
               ModernLoginButton(
@@ -94,7 +95,7 @@ class LunchScreen extends GetView {
                   Get.snackbar("Apple Login", "Clicked Apple Login");
                 },
               ),
-              SizedBox(height: 30),
+              SizedBox(height: 30.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -103,17 +104,17 @@ class LunchScreen extends GetView {
                     onTap: () {
                       Get.toNamed(Routes.signupScreen);
                     },
-                    child: const Text(
+                    child: Text(
                       "Sign Up",
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 16.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
                 ],
               ),
-              const Spacer(flex: 2),
+              Spacer(flex: 2),
             ],
           ),
         ),
@@ -143,10 +144,10 @@ class ModernLoginButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 55,
+        height: 50.h,
         decoration: BoxDecoration(
           gradient: gradient,
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(10.r),
           boxShadow: [
             BoxShadow(
               color: Colors.grey.shade300,
@@ -159,12 +160,12 @@ class ModernLoginButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(icon, color: Colors.white),
-            const SizedBox(width: 12),
+            SizedBox(width: 12.w),
             Text(
               text,
-              style: const TextStyle(
+              style: TextStyle(
                 color: Colors.white,
-                fontSize: 16,
+                fontSize: 16.sp,
                 fontWeight: FontWeight.bold,
               ),
             ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:saidpure_service/SignupScreen/signup_screen_controller.dart';
 
@@ -13,30 +14,36 @@ class SignupScreen extends GetView<SignupScreenController> {
         child: Form(
           key: controller.formKey,
           child: SingleChildScrollView(
-            padding: const EdgeInsets.all(20),
+            padding: EdgeInsets.all(20.sp),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 20),
+                SizedBox(height: 20.h),
 
                 /// TITLE
                 Align(
-                  child: const Text(
+                  child: Text(
                     "Create Account",
-                    style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: 26.sp,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
 
-                const SizedBox(height: 5),
+                SizedBox(height: 5.h),
 
                 Align(
                   child: Text(
                     "Signup",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
 
-                const SizedBox(height: 30),
+                SizedBox(height: 30.h),
 
                 /// NAME
                 CustomField(
@@ -46,7 +53,7 @@ class SignupScreen extends GetView<SignupScreenController> {
                   validator: controller.validateName,
                 ),
 
-                const SizedBox(height: 16),
+                SizedBox(height: 16.h),
 
                 /// EMAIL
                 CustomField(
@@ -56,7 +63,7 @@ class SignupScreen extends GetView<SignupScreenController> {
                   validator: controller.validateEmail,
                 ),
 
-                const SizedBox(height: 16),
+                SizedBox(height: 16.h),
 
                 /// PASSWORD
                 Obx(
@@ -80,7 +87,7 @@ class SignupScreen extends GetView<SignupScreenController> {
                   ),
                 ),
 
-                const SizedBox(height: 16),
+                SizedBox(height: 16.h),
 
                 /// CONFIRM PASSWORD
                 Obx(
@@ -103,21 +110,20 @@ class SignupScreen extends GetView<SignupScreenController> {
                     ),
                   ),
                 ),
-
-                const SizedBox(height: 25),
+                SizedBox(height: 25.h),
 
                 /// BUTTON
                 Obx(
                   () => SizedBox(
                     width: double.infinity,
-                    height: 55,
+                    height: 50.h,
                     child: ElevatedButton(
                       onPressed:
                           controller.isLoading.value ? null : controller.signup,
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.white,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(14),
+                          borderRadius: BorderRadius.circular(10.r),
                         ),
                       ),
                       child:
@@ -125,15 +131,15 @@ class SignupScreen extends GetView<SignupScreenController> {
                               ? const CircularProgressIndicator(
                                 color: Colors.white,
                               )
-                              : const Text(
+                              : Text(
                                 "Sign Up",
-                                style: TextStyle(fontSize: 16),
+                                style: TextStyle(fontSize: 16.sp),
                               ),
                     ),
                   ),
                 ),
 
-                const SizedBox(height: 20),
+                SizedBox(height: 20.h),
 
                 /// LOGIN
                 Row(
@@ -192,15 +198,15 @@ class CustomField extends StatelessWidget {
           vertical: 14,
         ),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(10.r),
           borderSide: BorderSide.none,
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(10.r),
           borderSide: BorderSide(color: Colors.grey.shade300),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(10.r),
           borderSide: const BorderSide(color: Colors.black),
         ),
         suffixIcon: suffix,

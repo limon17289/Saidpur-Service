@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:saidpure_service/HomePage/home_page.dart';
+import 'package:saidpure_service/HomePage/home_page_binding.dart';
 import 'package:saidpure_service/LoginScreen/login_screen.dart';
 import 'package:saidpure_service/LoginScreen/login_screen_binding.dart';
 import 'package:saidpure_service/LunchScreen/lunch_screen.dart';
@@ -54,7 +56,7 @@ class MyApp extends StatelessWidget {
             );
           },
 
-          initialRoute: Routes.splashScreen,
+          initialRoute: Routes.homePage,
 
           getPages: [
             GetPage(
@@ -76,6 +78,11 @@ class MyApp extends StatelessWidget {
               name: Routes.lunchScreen,
               page: () => LunchScreen(),
               binding: LunchScreenBinding(),
+            ),
+            GetPage(
+              name: Routes.homePage,
+              page: () => HomePage(),
+              binding: HomePageBinding(),
             ),
           ],
         );
