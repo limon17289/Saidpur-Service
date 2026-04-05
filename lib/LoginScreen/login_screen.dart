@@ -83,7 +83,9 @@ class LoginScreen extends GetView<LoginScreenController> {
                   Align(
                     alignment: Alignment.centerRight,
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.toNamed(Routes.ForgetPasswordScreen);
+                      },
                       child: const Text("Forgot Password?"),
                     ),
                   ),
