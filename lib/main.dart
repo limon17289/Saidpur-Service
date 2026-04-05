@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:saidpure_service/ForgetPassword/forget_password.dart';
+import 'package:saidpure_service/ForgetPassword/forget_password_binding.dart';
 import 'package:saidpure_service/HomePage/home_page.dart';
 import 'package:saidpure_service/HomePage/home_page_binding.dart';
 import 'package:saidpure_service/LoginScreen/login_screen.dart';
@@ -56,7 +58,7 @@ class MyApp extends StatelessWidget {
             );
           },
 
-          initialRoute: Routes.homePage,
+          initialRoute: Routes.ForgetPasswordScreen,
 
           getPages: [
             GetPage(
@@ -83,6 +85,11 @@ class MyApp extends StatelessWidget {
               name: Routes.homePage,
               page: () => HomePage(),
               binding: HomePageBinding(),
+            ),
+            GetPage(
+              name: Routes.ForgetPasswordScreen,
+              page: () => ForgetPasswordScreen(),
+              binding: ForgetPasswordBinding(),
             ),
           ],
         );
