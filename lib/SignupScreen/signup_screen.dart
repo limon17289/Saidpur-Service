@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:saidpure_service/SignupScreen/signup_screen_controller.dart';
+import 'package:saidpure_service/utils/routes.dart';
 
 class SignupScreen extends GetView<SignupScreenController> {
   const SignupScreen({super.key});
@@ -147,7 +148,7 @@ class SignupScreen extends GetView<SignupScreenController> {
                   children: [
                     const Text("Already have account? "),
                     GestureDetector(
-                      onTap: () => Get.back(),
+                      onTap: () => Get.toNamed(Routes.loginScreen),
                       child: const Text(
                         "Login",
                         style: TextStyle(fontWeight: FontWeight.bold),
