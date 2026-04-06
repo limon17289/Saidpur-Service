@@ -1,8 +1,8 @@
-
 // forget_password_screen.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:saidpure_service/utils/routes.dart';
 import 'forget_password_controller.dart';
 
 class ForgetPasswordScreen extends GetView<ForgetPasswordController> {
@@ -38,7 +38,10 @@ class ForgetPasswordScreen extends GetView<ForgetPasswordController> {
 
                 Text(
                   "Forgot Password?",
-                  style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontSize: 20.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
 
                 const SizedBox(height: 10),
@@ -78,30 +81,57 @@ class ForgetPasswordScreen extends GetView<ForgetPasswordController> {
 
                 SizedBox(height: 30.h),
 
-                // 🚀 Send Button
-                Obx(() => SizedBox(
-                      width: double.infinity,
-                      height: 50.h,
-                      child: ElevatedButton(
-                        onPressed: controller.isLoading.value
-                            ? null
-                            : controller.sendResetLink,
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xff4A6CF7),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.r),
-                          ),
+                GestureDetector(
+                  onTap: () {
+                    if (controller.formKey.currentState!.validate()) {
+                      // Validation successful
+                      Get.toNamed(Routes.otpScreen); // HomePage এ navigate
+                    }
+                  },
+                  child: Container(
+                    height: 45.h,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Colors.blueGrey,
+                      border: Border.all(color: Colors.black),
+                      borderRadius: BorderRadius.circular(10.r),
+                    ),
+                    child: Align(
+                      child: Text(
+                        "Login",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.bold,
                         ),
-                        child: controller.isLoading.value
-                            ? const CircularProgressIndicator(color: Colors.white)
-                            : const Text(
-                                "Send Reset Link",
-                                style: TextStyle(
-                                    color: Colors.white, fontWeight: FontWeight.bold),
-                              ),
                       ),
-                    )),
+                    ),
+                  ),
+                ),
 
+                // // 🚀 Send Button
+                // Obx(() => SizedBox(
+                //       width: double.infinity,
+                //       height: 50.h,
+                //       child: ElevatedButton(
+                //         onPressed: controller.isLoading.value
+                //             ? null
+                //             : controller.sendResetLink,
+                //         style: ElevatedButton.styleFrom(
+                //           backgroundColor: const Color(0xff4A6CF7),
+                //           shape: RoundedRectangleBorder(
+                //             borderRadius: BorderRadius.circular(10.r),
+                //           ),
+                //         ),
+                //         child: controller.isLoading.value
+                //             ? const CircularProgressIndicator(color: Colors.white)
+                //             : const Text(
+                //                 "Send Reset Link",
+                //                 style: TextStyle(
+                //                     color: Colors.white, fontWeight: FontWeight.bold),
+                //               ),
+                //       ),
+                //     )),
                 SizedBox(height: 20.h),
 
                 Center(

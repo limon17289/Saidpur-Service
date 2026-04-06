@@ -92,31 +92,58 @@ class LoginScreen extends GetView<LoginScreenController> {
 
                   SizedBox(height: 20.h),
 
-                  // Login Button
-                  Obx(
-                    () => SizedBox(
+                  GestureDetector(
+                    onTap: () {
+                      if (controller.formKey.currentState!.validate()) {
+                        // Validation successful
+                        Get.toNamed(Routes.homePage); // HomePage এ navigate
+                      }
+                    },
+                    child: Container(
+                      height: 45.h,
                       width: double.infinity,
-                      height: 50.h,
-                      child: ElevatedButton(
-                        onPressed:
-                            controller.isLoading.value
-                                ? null
-                                : controller.login,
-                        style: ElevatedButton.styleFrom(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.r),
+                      decoration: BoxDecoration(
+                        color: Colors.blueGrey,
+                        border: Border.all(color: Colors.black),
+                        borderRadius: BorderRadius.circular(10.r),
+                      ),
+                      child: Align(
+                        child: Text(
+                          "Login",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                        child:
-                            controller.isLoading.value
-                                ? const CircularProgressIndicator(
-                                  color: Colors.white,
-                                )
-                                : const Text("Login"),
                       ),
                     ),
                   ),
 
+                  // Login Button
+                  // Obx(
+                  //   () => SizedBox(
+                  //     width: double.infinity,
+                  //     height: 50.h,
+                  //     child: ElevatedButton(
+                  //       onPressed:
+                  //           controller.isLoading.value
+                  //               ? null
+                  //               : controller.login,
+                  //       style: ElevatedButton.styleFrom(
+                  //         shape: RoundedRectangleBorder(
+                  //           borderRadius: BorderRadius.circular(10.r),
+                  //         ),
+                  //       ),
+                  //       child:
+                  //           controller.isLoading.value
+                  //               ? const CircularProgressIndicator(
+                  //                 color: Colors.white,
+                  //               )
+                  //               : const Text("Login"),
+                  //     ),
+                  //   ),
+                  // ),
                   SizedBox(height: 20.h),
 
                   // Signup
