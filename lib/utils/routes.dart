@@ -5,4 +5,5 @@ class Routes {
   static const String signupScreen = "/SignupScreen";
   static const String homePage = "/HomePage";
   static const String ForgetPasswordScreen="/ForgetPasswordScreen";
+  static const String otpScreen="/OtpScreen";
 }

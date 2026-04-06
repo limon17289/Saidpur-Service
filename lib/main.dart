@@ -10,6 +10,8 @@ import 'package:saidpure_service/LoginScreen/login_screen.dart';
 import 'package:saidpure_service/LoginScreen/login_screen_binding.dart';
 import 'package:saidpure_service/LunchScreen/lunch_screen.dart';
 import 'package:saidpure_service/LunchScreen/lunch_screen_binding.dart';
+import 'package:saidpure_service/OtpScreen/otp_screen.dart';
+import 'package:saidpure_service/OtpScreen/otp_screen_binding.dart';
 import 'package:saidpure_service/SignupScreen/signup_screen.dart';
 import 'package:saidpure_service/SignupScreen/signup_screen_binding.dart';
 import 'package:saidpure_service/SplashScreen/splash_screen.dart';
@@ -90,6 +92,11 @@ class MyApp extends StatelessWidget {
               name: Routes.ForgetPasswordScreen,
               page: () => ForgetPasswordScreen(),
               binding: ForgetPasswordBinding(),
+            ),
+            GetPage(
+              name: Routes.otpScreen,
+              page: () => OtpScreen(),
+              binding: OtpScreenBinding(),
             ),
           ],
         );
