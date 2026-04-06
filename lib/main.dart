@@ -58,7 +58,7 @@ class MyApp extends StatelessWidget {
             );
           },
 
-          initialRoute: Routes.ForgetPasswordScreen,
+          initialRoute: Routes.splashScreen,
 
           getPages: [
             GetPage(
