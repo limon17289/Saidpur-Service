@@ -6,4 +6,8 @@ class Routes {
   static const String homePage = "/HomePage";
   static const String ForgetPasswordScreen="/ForgetPasswordScreen";
   static const String otpScreen="/OtpScreen";
+  static const String serviceList="/ServiceList";
+  static const String Booking="/Booking";
+
+
 }

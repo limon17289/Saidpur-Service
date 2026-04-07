@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:saidpure_service/BookingScreen/booking.dart';
+import 'package:saidpure_service/BookingScreen/booking_binding.dart';
 import 'package:saidpure_service/ForgetPassword/forget_password.dart';
 import 'package:saidpure_service/ForgetPassword/forget_password_binding.dart';
 import 'package:saidpure_service/HomePage/home_page.dart';
@@ -12,6 +14,8 @@ import 'package:saidpure_service/LunchScreen/lunch_screen.dart';
 import 'package:saidpure_service/LunchScreen/lunch_screen_binding.dart';
 import 'package:saidpure_service/OtpScreen/otp_screen.dart';
 import 'package:saidpure_service/OtpScreen/otp_screen_binding.dart';
+import 'package:saidpure_service/ServiceList/service_list.dart';
+import 'package:saidpure_service/ServiceList/service_list_binding.dart';
 import 'package:saidpure_service/SignupScreen/signup_screen.dart';
 import 'package:saidpure_service/SignupScreen/signup_screen_binding.dart';
 import 'package:saidpure_service/SplashScreen/splash_screen.dart';
@@ -60,7 +64,7 @@ class MyApp extends StatelessWidget {
             );
           },
 
-          initialRoute: Routes.splashScreen,
+          initialRoute: Routes.homePage,
 
           getPages: [
             GetPage(
@@ -97,6 +101,16 @@ class MyApp extends StatelessWidget {
               name: Routes.otpScreen,
               page: () => OtpScreen(),
               binding: OtpScreenBinding(),
+            ),
+                GetPage(
+              name: Routes.serviceList,
+              page: () => ServiceList(),
+              binding: ServiceListBinding(),
+            ),
+                GetPage(
+              name: Routes.Booking,
+              page: () => Booking(),
+              binding: BookingBinding(),
             ),
           ],
         );
