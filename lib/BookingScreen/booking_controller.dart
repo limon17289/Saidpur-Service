@@ -25,7 +25,15 @@ class BookingController extends GetxController {
     locationController.text = location; // 🔥 sync TextField
   }
 
-  void bookService() {
-    Get.snackbar("Success", "Service Booked Successfully!");
-  }
+  // void bookService() {
+  //   Get.snackbar("Success", "Service Booked Successfully!");
+  // }
+
+  void bookService({String paymentMethod = "Cash"}) {
+  print("Location: ${selectedLocation.value}");
+  print("Payment: $paymentMethod");
+
+  // এখানে API call যাবে
+  Get.snackbar("Success", "Booking done via $paymentMethod");
+}
 }

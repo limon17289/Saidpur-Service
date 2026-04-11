@@ -64,7 +64,7 @@ class MyApp extends StatelessWidget {
             );
           },
 
-          initialRoute: Routes.homePage,
+          initialRoute: Routes.splashScreen,
 
           getPages: [
             GetPage(
@@ -117,4 +117,4 @@ class MyApp extends StatelessWidget {
       },
     );
   }
-}
+} 
