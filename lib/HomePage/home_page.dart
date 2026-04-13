@@ -123,7 +123,7 @@ class HomePage extends GetView<HomePageController> {
                     onTap: () {
                       Get.toNamed(
                         Routes.serviceList,
-                        arguments: item["name"], // e.g. Plumbing
+                        arguments: item["name"], // Category name
                       );
                     },
                     child: Container(
