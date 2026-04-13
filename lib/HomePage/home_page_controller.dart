@@ -11,4 +11,14 @@ class HomePageController extends GetxController {
         {"name": "Painting", "icon": Icons.format_paint},
         {"name": "Car Wash", "icon": Icons.local_car_wash},
       ].obs;
+var recentBookings = [
+  {"name": "Rahim", "service": "AC Repair", "date": "12 Apr"},
+  {"name": "Karim", "service": "Plumbing", "date": "11 Apr"},
+  {"name": "Jamal", "service": "Cleaning", "date": "10 Apr"},
+].obs;
+
+var pendingBookings = [
+  {"name": "Sakib", "service": "Electric Work"},
+  {"name": "Nadim", "service": "Car Wash"},
+].obs;
 }

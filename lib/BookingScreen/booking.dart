@@ -8,7 +8,7 @@ class Booking extends GetView<BookingController> {
 
   @override
   Widget build(BuildContext context) {
-    var data = controller.serviceProvider ?? {};
+    var data = controller.serviceProvider;
 
     return Scaffold(
       backgroundColor: Colors.grey[100],
@@ -62,7 +62,7 @@ class Booking extends GetView<BookingController> {
 
               const SizedBox(height: 25),
 
-              /// 🔹 Section Title
+              /// 🔹 Title
               const Text(
                 "Location Details",
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
@@ -70,7 +70,7 @@ class Booking extends GetView<BookingController> {
 
               const SizedBox(height: 10),
 
-              /// 🔹 Input Field
+              /// 🔹 Input
               TextField(
                 controller: controller.locationController,
                 onChanged: (value) {
@@ -88,10 +88,6 @@ class Booking extends GetView<BookingController> {
                       controller.locationController.clear();
                     },
                   ),
-                  contentPadding: const EdgeInsets.symmetric(
-                    horizontal: 14,
-                    vertical: 14,
-                  ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                     borderSide: BorderSide.none,
@@ -101,19 +97,11 @@ class Booking extends GetView<BookingController> {
 
               const SizedBox(height: 12),
 
-              /// 🔹 Action Buttons
+              /// 🔹 Buttons
               Row(
                 children: [
                   Expanded(
                     child: ElevatedButton.icon(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blueAccent,
-                        foregroundColor: Colors.white,
-                        padding: const EdgeInsets.symmetric(vertical: 14),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                      ),
                       onPressed: controller.setLocation,
                       icon: const Icon(Icons.my_location),
                       label: const Text("Current"),
@@ -122,12 +110,6 @@ class Booking extends GetView<BookingController> {
                   const SizedBox(width: 12),
                   Expanded(
                     child: OutlinedButton.icon(
-                      style: OutlinedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(vertical: 14),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                      ),
                       onPressed: controller.pickFromMap,
                       icon: const Icon(Icons.map),
                       label: const Text("Map"),
@@ -135,105 +117,26 @@ class Booking extends GetView<BookingController> {
                   ),
                 ],
               ),
-              SizedBox(height: 30.h),
-              // const Spacer(),
 
-              /// 🔹 Confirm Button
-              /// 🔹 Confirm Button
+              SizedBox(height: 30.h),
+
+              /// 🔹 Save Button
               SizedBox(
                 width: double.infinity,
                 height: 52,
                 child: ElevatedButton(
+                  onPressed: controller.saveBookingDetails,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(14),
-                    ),
                   ),
-                  onPressed: () {
-                    if (controller.selectedLocation.value.isEmpty) {
-                      Get.snackbar("Error", "Please select location");
-                    } else {
-                      _showPaymentSheet(context);
-                    }
-                  },
                   child: const Text(
-                    "Confirm Booking",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                    "Save",
+                    style: TextStyle(fontSize: 18),
                   ),
                 ),
               ),
             ],
           ),
-        ),
-      ),
-    );
-  }
-
-  void _showPaymentSheet(BuildContext context) {
-    Get.bottomSheet(
-      Container(
-        padding: const EdgeInsets.all(16),
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Text(
-              "Select Payment Method",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-
-            const SizedBox(height: 15),
-
-            /// 🔹 bKash
-            ListTile(
-              leading: const Icon(
-                Icons.account_balance_wallet,
-                color: Colors.pink,
-              ),
-              title: const Text("bKash"),
-              onTap: () {
-                Get.back();
-                controller.bookService(paymentMethod: "bKash");
-              },
-            ),
-
-            /// 🔹 Nagad
-            ListTile(
-              leading: const Icon(
-                Icons.account_balance_wallet,
-                color: Colors.orange,
-              ),
-              title: const Text("Nagad"),
-              onTap: () {
-                Get.back();
-                controller.bookService(paymentMethod: "Nagad");
-              },
-            ),
-
-            /// 🔹 Bank
-            ListTile(
-              leading: const Icon(Icons.account_balance, color: Colors.blue),
-              title: const Text("Bank Transfer"),
-              onTap: () {
-                Get.back();
-                controller.bookService(paymentMethod: "Bank");
-              },
-            ),
-
-            /// 🔹 Cash
-            ListTile(
-              leading: const Icon(Icons.money, color: Colors.green),
-              title: const Text("Cash on Delivery"),
-              onTap: () {
-                Get.back();
-                controller.bookService(paymentMethod: "Cash");
-              },
-            ),
-          ],
         ),
       ),
     );

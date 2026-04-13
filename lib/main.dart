@@ -14,6 +14,8 @@ import 'package:saidpure_service/LunchScreen/lunch_screen.dart';
 import 'package:saidpure_service/LunchScreen/lunch_screen_binding.dart';
 import 'package:saidpure_service/OtpScreen/otp_screen.dart';
 import 'package:saidpure_service/OtpScreen/otp_screen_binding.dart';
+import 'package:saidpure_service/PreviewPage/preview_page.dart';
+import 'package:saidpure_service/PreviewPage/preview_page_binding.dart';
 import 'package:saidpure_service/ServiceList/service_list.dart';
 import 'package:saidpure_service/ServiceList/service_list_binding.dart';
 import 'package:saidpure_service/SignupScreen/signup_screen.dart';
@@ -111,6 +113,11 @@ class MyApp extends StatelessWidget {
               name: Routes.Booking,
               page: () => Booking(),
               binding: BookingBinding(),
+            ),
+                 GetPage(
+              name: Routes.previewPage,
+              page: () => PreviewPage(),
+              binding: PreviewPageBinding(),
             ),
           ],
         );
